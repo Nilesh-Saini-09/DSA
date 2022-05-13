@@ -1,0 +1,56 @@
+// using kadane's algorithms
+
+const maxSubarray = arr => {
+    let maxSoFar = arr[0];
+    let currentMax = arr[0];
+
+    for(let i of arr) {
+        currentMax = Math.max(i, currentMax + i);
+        maxSoFar = Math.max(maxSoFar, currentMax);
+    }
+
+    return maxSoFar;
+}
+
+// method 2 Finding sum of maximum subarray (another way of doing this)
+const maxSubarray2 = arr => {
+    let maxSoFar = arr[0];
+    let maxEndingHere = 0;
+
+    for(let i = 0; i < arr.length; i++) {
+        maxEndingHere = maxEndingHere + arr[i];
+        if(maxSoFar < maxEndingHere) {
+            maxSoFar = maxEndingHere;
+        }
+
+        if(maxEndingHere < 0) {
+            maxEndingHere = 0
+        }
+    }
+
+    return maxSoFar;
+} 
+
+// Finding the contiguous array that has maximum sum
+const maxSubarray3 = arr => {
+    let maxSoFar = arr[0];
+    let maxEndingHere = 0;
+    let start = 0, end = 0, s = 0;
+
+    for(let i = 0; i < arr.length; i++) {
+        maxEndingHere = maxEndingHere + arr[i];
+        if(maxSoFar < maxEndingHere) {
+            maxSoFar = maxEndingHere;
+            start = s;
+            end = i;
+        }
+
+        if(maxEndingHere < 0) {
+            maxEndingHere = 0;
+            s = i+1;
+        }
+    }
+
+    return arr.slice(start, end+1);
+} 
+
