@@ -1,9 +1,9 @@
 // using kadane's algorithm
-const maxSubarray = arr => {
+const maxSubarray = a => {
     let maxSoFar = a[0];
     let currentMax = a[0];
 
-    for(let i = 1; i < arr.length; i++) {
+    for(let i = 1; i < a.length; i++) {
         currentMax = Math.max(a[i], currentMax + a[i]);
         maxSoFar = Math.max(maxSoFar, currentMax);
     }
