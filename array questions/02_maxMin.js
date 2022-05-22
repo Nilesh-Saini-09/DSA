@@ -71,3 +71,10 @@ const maxMin4 = arr => {
     arr.sort((a, b) => a-b);
     return [arr[n-1], arr[0]];
 }
+
+//  using reduce function
+const maxMin5 = arr => {
+    let max = arr.reduce((a,b) => Math.max(a,b));
+    let min = arr.reduce((a,b) => Math.min(a,b));
+    return [max, min];
+}
