@@ -42,7 +42,14 @@ const sortArr = arr => {
     return arr;
 }
 
-// method 2 =>  Using three pointers 
+// method 2 =>  Using three pointers
+// Make three pointers start, mid and end where start and mid are equal to 0 and end is equal to the index of the last element of the array.
+// Initializes pivot to 1
+// Traverse the array condition being mid <= end
+// If arr[mid] is less than pivot - swap, increment start and mid by 1
+// If arr[mid] is greater than pivot - swap, decrement end by 1
+// If none of the conditions are true then increment mid by 1
+// return sorted arr
 
 const swap = (arr, i, j) => [arr[i], arr[j]] = [arr[j], arr[i]];
 
@@ -62,7 +69,7 @@ const sortArr2 = arr => {
         }
     }
 
-    return sortArr2;
+    return arr;
 }
 
 // method 3 -> another variant of method 2
