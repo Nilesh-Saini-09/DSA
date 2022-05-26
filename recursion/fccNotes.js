@@ -65,6 +65,118 @@ const bs = (arr, left, right, x) => {
 
 // 6. fibonacci
 
+// Non optimized version
 const fib = num => {
-    
+    if(num === 0 || nums === 1) return num;
+    return fib(num - 1) + fib(num - 2);
+}
+
+// 7. Merge sort
+const mergeSort = arr => {
+    if(arr.length <= 1) return arr;
+    let mid = Math.floor((arr.length/2));
+    let left = mergeSort(arr.slice(0, mid));
+    let right = mergeSort(arr.slice(mid));
+    return merge(left, right);
+}
+
+const merge = (arr1, arr2) => {
+    let results = [], i = 0, j=0;
+    while(i < arr1.length && j < arr2.length) {
+        if(arr1[i] < arr2[j]) {
+            results.push(arr1[i]);
+            i++;
+        } else {
+            results.push(arr2[j]);
+            j++;
+        }
+    }
+
+    while(i < arr1.length) {
+        results.push(arr1[i]);
+        i++;
+    }
+
+    while(j < arr2.length) {
+        results.push(arr2[j]);
+        j++;
+    }
+
+    return results;
+}
+
+// Linked list reversal 
+const linkedListReverse = head => {
+    if(head === null || head.next === null) return head;
+    let p = linkedListReverse(head.next);
+    head.next.next = head;
+    head.next = null;
+    return p;
+}
+
+// Merge two sorted linked lists
+const mergeLinkedList = (h1, h2) => {
+    if(h1 === null && h2 === null) return undefined;
+    if(!h1 || !h2) return h1 || h2;
+
+    if(h1.val < h2.val) {
+        h1.next = mergeLinkedList(h1.next, h2);
+        return h1;
+    } else {
+        h2.next = mergeLinkedList(h1, h2.next);
+        return h2;
+    }
+}
+
+// Insert value in a bst
+const insertBST = (root, val) => {
+    // create a new node using the value passed
+    let newNode = new Node(val);
+    if(root === null) {
+        root = newNode;
+        return true;
+    }
+
+    if(val > root.val) {
+        root.right = insertBST(root.right, val);
+    } else {
+        root.left = insertBST(root.left, val);
+    }
+
+    return root;
+}
+
+// print all leaf nodes
+
+const printLeaves = root => {
+    if(root === null) return;
+    const result = [];
+
+    if(root.left === null && root.right === null) {
+        result.push(root.val);
+    }
+
+    if(root.left !== null) printLeaves(root.left);
+    if(root.right !== null) printLeaves(root.right);
+
+    return result;
+}
+
+// memoization and caching
+// fib series
+
+// tail - call recursion optimization
+// Normal factorial function
+const factorial = num => {
+    if(num > 0) return num * factorial(num -1);
+    return 1;
+}
+
+// tail-call optimization
+const factorial2 = (num, mult) => {
+    if(num > 0) {
+        return factorial2(num - 1, num * mult);
+    }
+
+    return mult;
 }
