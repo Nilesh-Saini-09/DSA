@@ -190,3 +190,21 @@ const isSymmetric = root => {
     // call the helper function
     return traverse(root.left, root.right);
 }
+
+// 5. Generate parentheses
+
+// 5.1
+// check if the parentheses are valid
+const isValid = (str) => {
+    let diff = 0;
+    for(let i of s) {
+        if(i === '(') {
+            diff++;
+        } else {
+            if(stack.length === 0) return false
+            else diff--;
+        }
+    }
+
+    return diff === 0;
+}
