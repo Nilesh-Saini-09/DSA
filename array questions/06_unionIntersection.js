@@ -13,6 +13,7 @@
 // 2) If arr1[i] is smaller than arr2[j] then increment i.
 // 3) If arr1[i] is greater than arr2[j] then increment j.
 // 4) If both are same then print any of them and increment both i and j.
+// time  => O(m+n)
 const unionIntersection = (arr1, arr2) => {
     let [i, j] = [0, 0];
     let union = [];
@@ -52,13 +53,16 @@ const unionIntersection2 = (arr1, arr2) => {
     }
 
     let intersection = new Set();
+    let union = numSet1;
     for(let i of arr2) {
         if(numSet1.has(i)) {
             intersection.add(i);
+        } else {
+            union.add(i);
         }
     }
 
-    return intersection;
+    return [union, intersection];
 }
 
 

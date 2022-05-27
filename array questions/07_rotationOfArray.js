@@ -47,7 +47,7 @@ const rotateArray2 = function(nums, k) {
 // method 3
 // Reversal method for array rotation
 // algorithm:
-// 1. given n and r = n is length of the array and r is the number of times we must rotate.
+// 1. given n and r => n is length of the array and r is the number of times we must rotate.
 // 2. Break the array in two parts n-r (A) and r (B).
 // 3. Reverse A and B indivisually => ArBr.
 // 4. Reverse whole ArBr => (ArBr)r.
