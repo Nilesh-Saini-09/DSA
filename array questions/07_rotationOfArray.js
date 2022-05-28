@@ -4,6 +4,9 @@
 
 const rotateArray1 = function(nums, k) {
 
+    // if number of rotations is more than length of array
+    k %= nums.length;
+    
     for (let i = 0; i < k; i++) {
         nums.unshift(nums.pop());
     }
@@ -42,7 +45,28 @@ const rotateArray2 = function(nums, k) {
     return nums;
   }
 
+  // reversal solution that works
 
+  const reverse = (arr, start, end) => {
+    while(start < end) {
+      [arr[start], arr[end]] = [arr[end], arr[start]];
+      start++;
+      end--;
+    }
+  }
+
+const rotateArr9 = (nums, k) => {
+  k %= nums.length;
+  let n = nums.length;
+
+  reverse(nums, 0, n-k-1);
+  reverse(nums, n-k, n-1);
+  reverse(nums, 0, n-1);
+  return nums;
+  
+}
+
+// end
 
 // method 3
 // Reversal method for array rotation
