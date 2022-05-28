@@ -104,3 +104,9 @@ var rotate = function(nums, k) {
     );
     
 }
+
+// Jugglers algorithms
+// 1. If we will shift elements one by one it will become hard to keep track of all the elements without using extra space
+// 2. Divide the array into sets/cycles.
+// 3. Shift every element in a set k places to the left
+// 4. Then move to the next set and repeat the process
