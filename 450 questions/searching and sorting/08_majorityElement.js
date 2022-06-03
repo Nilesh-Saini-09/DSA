@@ -20,6 +20,7 @@ const majorityElement = arr => {
 }
 
 // method 2 = Moore's voting algorithm
+// time and space => O(n) and O(1)
 const findCandidate = (a, size) => {
     let maj_index = 0, count = 1;
     let i;
@@ -57,4 +58,21 @@ const printMajority = (a, size) => {
         return cand;
     else
         return -1;
+}
+
+// method 3 => using hash map
+// time and complexity => O(n) and O(n)
+const findMajority = arr => {
+    let map = new Map();
+
+    for(let i = 0; i < arr.length; i++) {
+        if (map.has(arr[i])) {
+            let count = map.get(arr[i]) +1;
+            if (count > arr.length /2) return arr[i]
+            else map.set(arr[i], count);
+        }
+        else
+            map.set(arr[i],1);
+    }
+    return -1;
 }
