@@ -20,3 +20,41 @@ const majorityElement = arr => {
 }
 
 // method 2 = Moore's voting algorithm
+const findCandidate = (a, size) => {
+    let maj_index = 0, count = 1;
+    let i;
+    for (i = 1; i < size; i++) {
+        if (a[maj_index] == a[i])
+            count++;
+        else
+            count--;
+
+        if (count == 0) {
+            maj_index = i;
+            count = 1;
+        }
+    }
+    return a[maj_index];
+}
+
+const isMajority = (a, size, cand) => {
+    let i, count = 0;
+    for (i = 0; i < size; i++) {
+        if (a[i] == cand)
+            count++;
+    }
+    if (count > parseInt(size / 2, 10))
+        return true;
+    else
+        return false;
+}
+
+const printMajority = (a, size) => {
+    let cand = findCandidate(a, size);
+  
+    /* Print the candidate if it is Majority*/
+    if (isMajority(a, size, cand))
+        return cand;
+    else
+        return -1;
+}
