@@ -1,5 +1,4 @@
-function jumpSearch(arr, x, n)
-{
+const jumpSearch = (arr, x, n) => {
     // Finding block size to be jumped
     let step = Math.sqrt(n);
     let prev = 0;
