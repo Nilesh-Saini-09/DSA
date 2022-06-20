@@ -1,0 +1,7 @@
+Algorithm
+1. Find the block size to be jumped.
+2. Find the block where the element is present. (if present)
+3. Do the linear search for the target in the block where target could be present.
+4. If we reached next block or the end of the array, element is not present.
+5. If element is found, return the index.
+6. Else return -1.
