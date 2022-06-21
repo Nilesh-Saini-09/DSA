@@ -1,0 +1,9 @@
+Interpolation Search
+1. Interpolation search is an algorithm similar to binary search for searching for a given target value in a sorted array.
+2. Interpolation constructs new data points within the range of a discrete set of known data points. Binary Search always goes to the middle element to check. On the other hand, interpolation search may go to different locations according to the value of the key being searched.
+
+3. There are three main things to remember when doing interpolation search:
+a. Given: Sorted array of n uniformly distributed values.
+b. Goal: Search for element x.
+c. Formula: ---
+
